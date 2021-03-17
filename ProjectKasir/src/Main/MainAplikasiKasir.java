@@ -3,19 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projectkasir;
+package Main;
 
 /**
  *
  * @author FadleMhsa
  */
-public class ProjectKasir {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class MainAplikasiKasir {
     
+    public static void main(String[] args){ }
+
+    public void generateDaftarMenu() { }
+
 }
