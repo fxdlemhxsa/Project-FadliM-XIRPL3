@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classes;
+package main;
 
 /**
  *
  * @author FadleMhsa
  */
-public class Minuman extends Menu {
+public class MainAplikasiKasir {
     
-    public Minuman (String nama_minuman, double harga) { }
+    public static void main(String[] args){ }
+
+    public void generateDaftarMenu() { }
 
 }

@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classes;
+package classes;
 
 /**
  *
  * @author FadleMhsa
  */
-public class Toping extends Menu {
+public class Kuah extends Menu {
     
-    public Toping (String nama_toping, double harga) { }
+    public Kuah (String nama_kuah) { }    
 
 }
