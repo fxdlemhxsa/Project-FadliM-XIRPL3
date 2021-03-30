@@ -17,6 +17,7 @@ package main;
  import classes.Toping;
  import java.util.Scanner;
 public class MainAplikasiKasir {
+    public DaftarMenu daftarMenu;
     
     public static void main(String[] args){
         //Inisialisasi kelas Scanner untuk mengam bil
