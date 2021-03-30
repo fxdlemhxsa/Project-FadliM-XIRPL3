@@ -17,12 +17,20 @@ package main;
  import classes.Toping;
  import java.util.Scanner;
 public class MainAplikasiKasir {
+
     public DaftarMenu daftarMenu;
+    
+    public static double PAJAK_PPN = 0.10;
+    public static double BIAYA_SERVICE = 0.05;
     
     public static void main(String[] args){
         //Inisialisasi kelas Scanner untuk mengam bil
         //input dari keyboard
         Scanner input = new Scanner(System.in);
+
+        String no_transaksi, nama_pemesan, tanggal, no_meja = "";
+        String Transaksi_lagi = "", pesan_lagi = "", keterangan = "", makan_ditempat;
+        int jumlah_pesanan, no_menu;
 
         MainAplikasiKasir app = new MainAplikasiKasir();
         //Tampilkan daftar menu
