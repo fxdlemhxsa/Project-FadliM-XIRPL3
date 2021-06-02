@@ -5,6 +5,9 @@
  */
 package classes;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 /**
  *
  * @author FadleMhsa
@@ -50,4 +53,19 @@ public class Menu {
 
     }
 
+    public Menu pilihMenu() {
+        try{
+            Scanner input = new Scanner(System.in);
+            
+            System.out.print("Nomor Menu yang Dipesan : ");
+            int no_menu = input.nextInt();
+            
+            //get menu berdasarkan no_menu, di -1 karena arraylist dimulai dari 0
+            Menu m = daftarMenu.get(no_menu-1);
+        }catch(IndexOutOfBoundsException err){
+            
+        }catch(InputMismatchException err){
+            
+        }
+    }
 }
