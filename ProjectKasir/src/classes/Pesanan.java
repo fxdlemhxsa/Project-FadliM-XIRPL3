@@ -28,8 +28,12 @@ public class Pesanan {
         return jumlah;
     }
 
-    public void setKeterangan(String keterangan) { }
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
+    }
 
-    public String getKeterangan() {return ""; }
+    public String getKeterangan() {
+        return keterangan; 
+    }
 
 }

@@ -80,6 +80,17 @@ public class Transaksi {
         
         System.out.println("Meja : " + noMeja);
         System.out.println("====================================");
+        for (int i = 0; i < pesanan.size(); i++){
+            Pesanan psn = pesanan.get(i);
+            Menu m = psn.getMenu();
+            String pesanan = psn.getJumlah() + " " + m.getNama_menu() + "\t" + (m.getHarga() * psn.getJumlah());
+            
+            //Jika pesanan kuah, tambah spasi diawal 2
+            if (m.getKategori().equals("Kuah")){
+                pesanan = "  " + pesanan;
+            }
+            System.out.println(pesanan);
+        }
     }
     
     public void setPajak(double pajak){

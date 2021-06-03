@@ -5,10 +5,6 @@
  */
 package classes;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-import java.util.ArrayList;
-
 /**
  *
  * @author FadleMhsa
