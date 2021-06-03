@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class Transaksi {
     private String noTransaksi;
-    private String namaPemesanan;
+    private String namaPemesan;
     private String tanggal;
     private String noMeja;
     private ArrayList<Pesanan> pesanan;
@@ -25,7 +25,7 @@ public class Transaksi {
 
     public Transaksi (String no_transaksi, String nm_pemesan, String tanggal, String no_meja) { 
         this.noTransaksi = no_transaksi;
-        this.namaPemesanan = nm_pemesan;
+        this.namaPemesan = nm_pemesan;
         this.tanggal =  tanggal;
         this.noMeja = no_meja;
 
@@ -40,9 +40,54 @@ public class Transaksi {
         return pesanan; 
     }
 
-    public double hitungTotalBayar() {return 0; }
+    public double hitungTotalPesanan(){
+        for (int i = 0; i < pesanan.size(); i++){
+        Pesanan psn = pesanan.get(i);
+        double harga = psn.getMenu().getHarga();
+        totalBayar += (harga * psn.getJumlah());
+        }
+        
+        return totalBayar; 
+    }
+    
+    public double hitungPajak(){
+        return totalBayar * pajak;
+    }
+    
+    public double hitungBiayaService(){
+        return totalBayar * biayaService;
+    }
+    
+    public double hitungTotalBayar(double pajak, double service){
+        totalBayar = totalBayar + pajak + service;
+        return totalBayar;
+    }
 
-    public double hitungKembalian() {return 0; }
+    public double hitungKembalian(double uang_bayar) {
+        return uang_bayar - totalBayar; 
+    }
 
-    public void cetakStruk() { }
+    public void cetakStruk() {
+        System.out.println("\n======== RR | RUNGKADRAMEN ========");
+        System.out.println("No Transaksi : " + noTransaksi);
+        System.out.println("Pemesan : " + namaPemesan);
+        System.out.println("Tanggal : " + tanggal);
+        
+        //cek Jika Nomor Meja Kosong, berarti Take Away
+        if(noMeja.equals("")){
+            noMeja = "Take Away";
+        }
+        
+        System.out.println("Meja : " + noMeja);
+        System.out.println("====================================");
+    }
+    
+    public void setPajak(double pajak){
+        this.pajak = pajak;
+    }
+    
+    public void setBiayaServive(double service){
+        this.biayaService = service;
+    }
+    
 }

@@ -18,7 +18,7 @@ package main;
  import classes.Ramen;
  import classes.Toping;
  import classes.Transaksi;
-import java.util.InputMismatchException;
+ import java.util.InputMismatchException;
  import java.util.Scanner;
 public class MainAplikasiKasir {
 
@@ -123,6 +123,45 @@ public class MainAplikasiKasir {
                     
         } while (pesan_lagi.equalsIgnoreCase("Y"));
         
+        //Cetak Struk
+        trans.cetakStruk();
+        
+        //Penghitungan Total Harga
+        double total_pesanan = trans.hitungTotalPesanan();
+        System.out.println("====================================");
+        System.out.println("Total : \t\t " + total_pesanan);
+        
+        //Plus Hitung Biaya Pajak
+        trans.setPajak(PAJAK_PPN);
+        double ppn = trans.hitungPajak();
+        System.out.println("Pajak 10% : \t\t " + ppn);
+        
+        //Hitung Biaya Service Apabila Makan di Tempat
+        double biaya_service = 0;
+        if (makan_ditempat.equalsIgnoreCase("Y")){
+            trans.setBiayaServive(BIAYA_SERVICE);
+            biaya_service = trans.hitungBiayaService();
+            System.out.println("Biaya Service  5% : \t\t " + biaya_service);
+        }
+        
+        //Tampilkan Total Bayar Keseluruhan
+        System.out.println("Total Pembayaran : \t " + trans.hitungTotalBayar(ppn, biaya_service));
+        
+        double kembalian = 0;
+        do {
+         //Input Uang Bayar
+         double uang_bayar = app.CekInputNumber("Uang Bayar : \t\t");
+         
+         kembalian = trans.hitungKembalian(uang_bayar);
+         if (kembalian < 0){
+            System.out.println("[Err] Uang anda kurang");
+        }else{
+             System.out.println("Kembalian : \t\t " + kembalian);
+             break;
+         }
+        }while(kembalian < 0);
+        
+        System.out.println("======== TERIMA KASIH ========");
     }
    
 
